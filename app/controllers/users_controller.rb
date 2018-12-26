@@ -33,7 +33,8 @@ class UsersController < ApplicationController
     # IDを元にUserモデルから検索
     if @user.update(user_params)
       # 更新処理
-      redirect_to user_path(@user.id)
+      redirect_to user_path(@user.id), notice: "User traffic
+ was successfully updated."
       # ユーザーページにリダイレクト
     else
       render :edit
