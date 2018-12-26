@@ -1,0 +1,21 @@
+<% if @user.errors.any? %>
+	<h2><%= pluralize(@user.errors.count, "error") %> prohibited this post from being saved:</h2>
+    <% @user.errors.full_messages.each do |message| %>
+    	<%= message %>
+	<% end %>
+<% end %>
+
+<div class="container">
+	<div class="row">
+		<div class="col-lg-3">
+			<h1>User info</h1>
+			<%= form_for(@user) do |f| %>
+				<p>Name<%= f.text_field :name, class: "name" %></p>
+				<p>Image<%= f.attachment_field :profile_image, class: "user_image" %></p>
+				<p>Introduction<%= f.text_area :introduction, class: "introduction" %></p>
+		    	<%= f.submit "Update User" %>
+			<% end %>
+		</div>
+	</div>
+	<%= render "books/footer" %>
+</div>

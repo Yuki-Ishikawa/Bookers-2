@@ -1,0 +1,20 @@
+<div class="row">
+	<div class="col-xs-12">
+		<h1>User info</h1>
+			<p><%= attachment_image_tag @user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg", size: "100x100" %></p>
+				<table class="table table-striped">
+					<tr>
+						<th>name</th>
+						<td><%= user.name %></td>
+					</tr>
+
+					<tr>
+						<th>introduction</th>
+						<td><%= user.introduction %></td>
+					</tr>
+				</table>
+				<% if @user == current_user %>
+					<%= link_to " ",edit_user_path(user), class: "edit_user_#{user.id} glyphicon glyphicon-wrench btn btn-default col-xs-12"  %>
+				<% end %>
+	</div>
+</div>
